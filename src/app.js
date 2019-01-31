@@ -2,11 +2,14 @@
 import { http } from './http';
 import { ui } from './ui';
 
-// get the prosts upon page load
+// get the posts upon page load
 document.addEventListener('DOMContentLoaded', getPosts);
 
-// Event Listener to Add Post
+// Event Listener For Add Post
 document.querySelector('.post-submit').addEventListener('click', addPost);
+
+// Event Listener For Edit State
+document.querySelector('#posts').addEventListener('click', setEditState) 
 
 // API REST functions
 function getPosts(){
@@ -32,5 +35,14 @@ function addPost(){
             .catch(err => console.log(err))
  }
 
-
-
+// Set Edit State
+function setEditState(e){
+    const target = e.target.parentElement;
+    if(target.classList.contains('edit')){
+        const id = target.dataset.id;
+        const title = target.previousElementSibling.textContent;
+        const body =  target.previousElementSibling.previousElementSibling.textContent;
+        const data = {id, title, body};
+        ui.fillForm(data);
+    }
+}
