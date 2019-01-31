@@ -33,8 +33,8 @@ $ npm run build
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+Mohamed Khamis
+email: mkhs66662000@gmail.com
 
 ### License
 
